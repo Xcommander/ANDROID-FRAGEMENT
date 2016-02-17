@@ -24,9 +24,7 @@ public class BookContent {
 
         @Override
         public String toString() {
-            return "Book{" +
-                    "title='" + title + '\'' +
-                    '}';
+            return title;
         }
     }
     public static List<Book> BookList=new ArrayList<Book>();

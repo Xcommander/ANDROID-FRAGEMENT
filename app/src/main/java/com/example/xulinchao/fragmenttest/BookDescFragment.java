@@ -3,6 +3,7 @@ package com.example.xulinchao.fragmenttest;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,7 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BookDescFragment extends Fragment {
+public class BookDescFragment extends android.app.Fragment {
 
     public static final String ITEM_ID="item_id";
     BookContent.Book book;
@@ -22,6 +23,7 @@ public class BookDescFragment extends Fragment {
         if(getArguments()!=null) {
             if(getArguments().containsKey(ITEM_ID)) {
                 book = BookContent.BookList.get(getArguments().getInt(ITEM_ID));
+                Log.e("xlc","xlc book"+book.toString());
             }
         }
     }
@@ -33,6 +35,7 @@ public class BookDescFragment extends Fragment {
        View descView=inflater.inflate(R.layout.fragment_book_desc,container,false);
         if(book!=null){
             ((TextView)descView.findViewById(R.id.book_title)).setText(book.title);
+            System.out.println(book.title);
             ((TextView)descView.findViewById(R.id.book_desc)).setText(book.desc);
         }
         return descView;
